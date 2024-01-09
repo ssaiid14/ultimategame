@@ -1,0 +1,159 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #190482;
+    color: #000;
+}
+
+.container {
+    max-width: 800px;
+    margin: auto;
+}
+
+header {
+    box-shadow: 0 0 70px black;
+    background-color: #7752FE;
+    padding: 20px 0;
+    text-align: center;
+    color: black;
+    
+}
+header button{
+    background-color: silver;
+}
+#logo {
+    position: absolute;
+    height: 100px;
+    width: 100px;
+    top: 20px;
+    left: 30px;
+}
+main {
+    padding: 20px;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+}
+
+#formulario {
+    background-color: #7752FE;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+form {
+    display: grid;
+    gap: 20px;
+}
+
+label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+
+input {
+    width: 50%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+
+select{
+    width: 20%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.checkbox-group,.radio-group {
+    display: grid;
+    gap: 10px;
+    
+}
+
+
+.checkbox-item input,.radio-item input {
+    margin-right: 5px;
+    width: 25px;
+}
+
+.button-group {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+button {
+    padding: 10px;
+    background-color: #190482;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: gray;
+}
+
+footer {
+    background-color: #7752FE;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    box-shadow: 0 0 70px black;
+}
+
+.cssbuttons-io-button {
+    display: flex;
+    align-items: center;
+    font-family: inherit;
+    font-weight: 500;
+    font-size: 12px;
+    padding: 0.7em 1.4em 0.7em 1.1em;
+    color: white;
+    background: #ad5389;
+    background: linear-gradient(0deg, #190482 0%, #5430d6 100%);
+    border: none;
+    box-shadow: 0 0.7em 1.5em -0.5em #411cff;
+    letter-spacing: 0.05em;
+    border-radius: 20em;
+    width: 100px;
+  }
+  
+  .cssbuttons-io-button svg {
+    margin-right: 6px;
+  }
+  
+  .cssbuttons-io-button:hover {
+    box-shadow: 0 0.5em 1.5em -0.5em black;
+  }
+  
+  .cssbuttons-io-button:active {
+    box-shadow: 0 0.3em 1em -0.5em black;
+  }

@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        
+        <meta charset="UTF-8">
+        <title>Ultimate Game</title>
+        <link rel="shortcut icon" href="./imagenes/logo.webp"/>
+        <link rel="stylesheet" href="./style.css">
+        <link rel="stylesheet" href="./style-banner.css">
+        <link rel="stylesheet" href="./style-productos.css">
+        
+        <script>
+            (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer','GTM-MB7HJ8K');
+        </script>
+
+    </head>
+
+    <body>
+
+        <!-- aviso de cookies -->
+        <noscript>
+            <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MB7HJ8K"
+            height="0" width="0" style="display:none;visibility:hidden"></iframe>
+        </noscript>
+        <div class="aviso-cookies" id="aviso-cookies">
+            <img class="galleta" src="./imagenes/cookie.svg" alt="Galleta">
+            <h3 class="titulo">Cookies</h3>
+            <p class="parrafo">Utilizamos cookies propias y de terceros para mejorar nuestros servicios.</p>
+            <button class="boton" id="btn-aceptar-cookies">De acuerdo</button>
+            <a class="enlace" href="./aviso-cookie/aviso-cookies.html">Aviso de Cookies</a>
+        </div>
+        <div class="fondo-aviso-cookies" id="fondo-aviso-cookies"></div>
+
+        <!-- script para aviso de cookies -->
+        <script src="./aviso-cookie/aviso-cookies.js"></script>
+
+        <!-- cabecera -->
+        <header>
+
+            <!-- animación titulo pagina -->
+            <button class="button" data-text="Awesome">
+                <span class="actual-text">&nbsp;Ultimate&nbsp;Game&nbsp;</span>
+                <span aria-hidden="true" class="hover-text">&nbsp;Ultimate&nbsp;Game&nbsp;</span>
+            </button>
+
+            <!-- Logo -->
+            <a href="./index.html">
+                <img id="logo" src="./imagenes/logo.webp" alt="logo">
+            </a>
+            <!-- Carrito de la compra -->
+            <div id="carrito-icon">
+                <img id="carritocompra" src="./imagenes/carrito compra.png" alt="carrito de la compra">
+            </div>
+
+            <!-- Logo de usuario que te lleva al formulario de inicio de sesión -->
+            <a href="./Formulario/formulario.html">
+                <img id="logousuario" src="./imagenes/usuario.png" alt="logo usuario">
+            </a>
+
+        </header>
+
+        <!-- menu de la subcabecera-->
+            <nav class="subheader">
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropbtn">Categorías</a>
+                        <div class="dropdown-content">
+                            <a href="">PC</a>
+                            <a href="">PS5</a>
+                            <a href="">Xbox</a>
+                            <a href="">Nintendo</a>
+                            <a href="">Acción</a>
+                            <a href="">Deportes</a>
+                            <a href="">Retro</a>
+                            <a href="">Miedo</a>
+                            <a href="">Aventura</a>
+                            <a href="">Simulación</a>
+                            <a href="">Lucha</a>
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropbtn">Juegos Destacados</a>
+                        <div class="dropdown-content">
+                            <a href="">Nuevos Lanzamientos</a>
+                            <a href="">Más Vendidos</a>
+                            <a href="">Próximos Lanzamientos</a>
+                            <a href="">Descuentos</a>
+                            <a href="">Gratis</a>
+                        </div>
+                    </li>
+                    <li class="dropdown"><a href="./Noticias/noticias.html">Noticias</a></li>
+                    <li class="dropdown"><a href="./Atención al cliente/Servicio-al-cliene.html">Contacto</a></li>
+                </ul>
+            </nav>
+
+
+        <!--banner de imagenes -->
+            <div id="banner">
+                <button id="leftBtn" onclick="moveToSlide(currentIndex - 1)">&#10094;</button>
+                <button id="prevBtn" onclick="prevSlide()">&#10094;</button>
+                <div id="slider">
+                    <div class="slide">
+                        <img src="./imagenes/banner/imagen1.jpg" alt="Imagen 1">
+                    </div>
+                    <div class="slide">
+                        <img src="./imagenes/banner/imagen2.jpg" alt="Imagen 2">
+                    </div>
+                    <div class="slide">
+                        <img src="./imagenes/banner/imagen3.jpg" alt="Imagen 3">
+                    </div>
+                    <div class="slide">
+                        <img src="./imagenes/banner/imagen4.jpg" alt="Imagen 3">
+                    </div>
+                    <div class="slide">
+                        <img src="./imagenes/banner/imagen3.jpg" alt="Imagen 3">
+                    </div>
+                </div>
+                <button id="nextBtn" onclick="nextSlide()">&#10095;</button>
+                <div id="indicators"></div>
+            </div>
+
+        <!--script para todo el banner -->
+        <script>
+                const slider = document.getElementById('slider');
+            const leftBtn = document.getElementById('leftBtn');
+            const indicatorsContainer = document.getElementById('indicators');
+            let currentIndex = 0;
+    
+            function nextSlide() {
+                slider.appendChild(slider.firstElementChild);
+                currentIndex = (currentIndex + 1) % slider.children.length;
+                updateIndicators();
+            }
+    
+            function prevSlide() {
+                slider.insertBefore(slider.lastElementChild, slider.firstElementChild);
+                currentIndex = (currentIndex - 1 + slider.children.length) % slider.children.length;
+                updateIndicators();
+            }
+    
+            function updateIndicators() {
+                const indicators = Array.from(document.querySelectorAll('.indicator'));
+    
+                indicators.forEach((indicator, index) => {
+                    indicator.classList.toggle('active', index === currentIndex);
+                });
+            }
+    
+            function createIndicators() {
+                const slides = Array.from(document.querySelectorAll('.slide'));
+    
+                slides.forEach((slide, index) => {
+                    const indicator = document.createElement('div');
+                    indicator.classList.add('indicator');
+                    indicator.addEventListener('click', () => {
+                        moveToSlide(index);
+                    });
+                    indicatorsContainer.appendChild(indicator);
+                });
+    
+                updateIndicators();
+            }
+    
+            function moveToSlide(index) {
+                const slides = Array.from(document.querySelectorAll('.slide'));
+                const offset = currentIndex - index;
+    
+                if (offset > 0) {
+                    for (let i = 0; i < offset; i++) {
+                        slider.appendChild(slider.firstElementChild);
+                    }
+                } else if (offset < 0) {
+                    for (let i = 0; i > offset; i--) {
+                        slider.insertBefore(slider.lastElementChild, slider.firstElementChild);
+                    }
+                }
+    
+                currentIndex = index;
+                updateIndicators();
+            }
+    
+            createIndicators();
+            setInterval(nextSlide, 5000); // Cambia la imagen cada 5 segundos
+        </script>
+
+        <main>
+            <section>
+                <h2>Explora Nuestros Juegos</h2>
+                <br>
+                <p>Bienvenido a la tienda donde encontrarás una amplia selección de juegos en línea. ¡Descubre las últimas novedades y clásicos que te encantarán!</p>
+
+                <!-- aqui añadir imagenes de jeugos -->
+                
+                <p>¡No te pierdas nuestras ofertas especiales y descuentos exclusivos!</p>
+            </section>
+                
+            <!-- Sección de juegos de PS5 -->
+            <section id="section1">
+
+                <span><h1><b>Juegos PS5</b></h1></span>
+
+                <a href="">
+                <div class="fifa24">
+                    <img id="fifa24" src="./imagenes/juegos/PS5/fifa24.webp" alt="">
+                    <p>Fifa24</p>
+                    <div class="producto-precio">66,99 €</div>
+                </div></a>
+
+                <a href="">
+                <div class="spiderman2">
+                    <img id="spiderman2" src="./imagenes/juegos/PS5/spiderman-2.avif" alt="">
+                    <p>Spider-man 2</p>
+                    <div class="producto-precio">79,99 €</div>
+                </div></a>
+
+                <a href="">
+                <div class="godofwar">
+                    <img id="godofwar" src="./imagenes/juegos/PS5/godofwar.avif" alt="">
+                    <p>God Of War Ragnarök</p>
+                    <div class="producto-precio">19,99 €</div>
+                </div></a>
+
+                <a href="">
+                <div class="mortalkombat">
+                    <img id="mortalkombat" src="./imagenes/juegos/PS5/mortalkombat.avif" alt="">
+                    <p>Mortal Kombat 11</p>
+                    <div class="producto-precio">9,99 €</div>
+                </div></a>
+
+                <a href="">
+                <div class="thelastofus">
+                    <img id="thelastofus" src="./imagenes/juegos/PS5/thelastofus.avif" alt="">
+                    <p>The Last of Us Remastered</p>
+                    <div class="producto-precio">25,99 €</div>
+                </div></a>
+
+                <a href="">
+                <div class="modernwarfare">
+                    <img id="modernwarfare" src="./imagenes/juegos/PS5/modern warfare 3.avif" alt="">
+                    <p>Modern warfare III</p>
+                    <div class="producto-precio">70 €</div>
+                </div></a>
+                
+            </section>
+
+            <!-- Sección de juegos de XBOX -->
+            <section id="section1">
+
+                <span><h1><b>Juegos XBOX</b></h1></span>
+
+                <a href="">
+                <div class="TomClancysTheDivision2">
+                    <img id="TomClancysTheDivision2" src="./imagenes/juegos/XBOX/Tom Clancy's The Division 2.avif" alt="">
+                    <p>Tom Clancy's The Division 2 </p>
+                    <div class="producto-precio">16 €</div>
+                </div></a>
+
+                <a href="">
+                <div class="BattlefieldV">
+                    <img id="BattlefieldV" src="./imagenes/juegos/XBOX/Battlefield V.avif" alt="">
+                    <p>Battlefield V</p>
+                    <div class="producto-precio">39,99 €</div>
+                </div></a>
+
+                <a href="">
+                <div class="BlackOpsIII">
+                    <img id="BlackOpsIII" src="./imagenes/juegos/XBOX/Black Ops III.avif" alt="">
+                    <p>Black Ops III</p>
+                    <div class="producto-precio">19,99 €</div>
+                </div></a>
+
+                <a href="">
+                <div class="RedDeadRedemption2">
+                    <img id="RedDeadRedemption2" src="./imagenes/juegos/XBOX/Red Dead Redemption 2.avif" alt="">
+                    <p>Red Dead Redemption 2</p>
+                    <div class="producto-precio">39,99 €</div>
+                </div></a>
+
+                <a href="">
+                <div class="ForzaMotorsport7">
+                    <img id="ForzaMotorsport7" src="./imagenes/juegos/XBOX/Forza Motorsport 7.avif" alt="">
+                    <p>Forza Motorsport 7</p>
+                    <div class="producto-precio">69,99 €</div>
+                </div></a>
+
+                <a href="">
+                <div class="AssassinsCreed">
+                    <img id="AssassinsCreed" src="./imagenes/juegos/XBOX/Assassin's Creed Unity.avif" alt="">
+                    <p>Assassin's Creed Unity</p>
+                    <div class="producto-precio">36,99 €</div>
+                </div></a>
+                
+            </section>
+
+            <!-- Sección de juegos de PC -->
+            <section id="section1">
+
+                <span><h1><b>Juegos PC</b></h1></span>
+
+                <a href="">
+                <div class="HogwartsLegacy">
+                    <img id="HogwartsLegacy" src="./imagenes/juegos/PC/Hogwarts Legacy.avif" alt="">
+                    <p>Hogwarts Legacy</p>
+                    <div class="producto-precio">70,99 €</div>
+                </div></a>
+
+                <a href="">
+                <div class="TheLastofUsPartI">
+                    <img id="TheLastofUsPartI" src="./imagenes/juegos/PC/The Last of Us Part I.avif" alt="TheLastofUsPartI">
+                    <p>The Last of Us Part I</p>
+                    <div class="producto-precio">34,99 €</div>
+                </div></a>
+
+                <a href="">
+                <div class="GodofWar">
+                    <img id="GodofWar" src="./imagenes/juegos/PC/God of War.avif" alt="GodofWar">
+                    <p>God of War</p>
+                    <div class="producto-precio">16,99 €</div>
+                </div></a>
+
+                <a href="">
+                <div class="Battlefield2042">
+                    <img id="Battlefield2042" src="./imagenes/juegos/PC/Battlefield 2042.avif" alt="Battlefield2042">
+                    <p>Battlefield 2042</p>
+                    <div class="producto-precio">29,99 €</div>
+                </div></a>
+
+                <a href="">
+                <div class="DeadbyDaylight">
+                    <img id="DeadbyDaylight" src="./imagenes/juegos/PC/Dead by Daylight.avif" alt="DeadbyDaylight">
+                    <p>Dead by Daylight</p>
+                    <div class="producto-precio">26,99 €</div>
+                </div></a>
+
+                <a href="">
+                <div class="Minecraft">
+                    <img id="Minecraft" src="./imagenes/juegos/PC/Minecraft.avif" alt="Minecraft">
+                    <p>Minecraft</p>
+                    <div class="producto-precio">16,99 €</div>
+                </div></a>
+                
+            </section>
+
+            <section>
+                <h2>Descubre lo mejor en gaming:</h2><br>
+                <ul style="margin-left: 25px;">
+                    <li>Explora mundos fantásticos llenos de desafíos en juegos de rol.</li>
+                    <li>Vive la adrenalina de la competición en emocionantes juegos de deportes.</li>
+                    <li>Sumérgete en historias cautivadoras con nuestros juegos de aventuras.</li>
+                    <li>Desarrolla estrategias ganadoras en juegos de estrategia en tiempo real.</li>
+                </ul>
+            </section>
+
+            <section>
+                <p>Nuestro equipo de expertos está comprometido en proporcionarte reseñas detalladas, información actualizada y recomendaciones para que tomes decisiones informadas sobre tus próximas adquisiciones. Ya seas un jugador experimentado o estés dando tus primeros pasos en el mundo del gaming, aquí encontrarás algo para ti.</p>
+                <p>¡Explora nuestra página, elige tus títulos favoritos y prepárate para vivir emociones inigualables! Entra en el universo de los videojuegos y haz de cada sesión de juego una experiencia inolvidable.</p>
+            </section>
+
+            <section>
+                <h2>Comunidad Gaming:</h2><br>
+                <p>En nuestra plataforma, no solo se trata de juegos; también se trata de comunidad. Únete a conversaciones apasionadas, comparte tus logros y descubre nuevos amigos con los que compartir tu amor por los videojuegos. En nuestro foro y redes sociales, la comunidad gaming cobra vida, conectando a jugadores de todas partes para compartir experiencias y conocimientos.</p>
+            </section>
+
+            <section>
+                <h2>Lo Último en Gaming:</h2><br>
+                <p>Mantente al día con las últimas tendencias y lanzamientos de videojuegos. Nuestra sección "Noticias" te ofrece una ventana a las novedades más emocionantes. Desde anticipados lanzamientos AAA hasta gemas independientes, te proporcionamos información detallada para que estés siempre un paso adelante en el mundo del gaming.</p>
+            </section>
+
+        </main>
+
+        <footer>
+            <div class="footer-container">
+                <div class="footer-section">
+                  <h2>Categorías</h2>
+                  <ul>
+                    <li><a href="#">Acción</a></li>
+                    <li><a href="#">Aventura</a></li>
+                    <li><a href="#">Estrategia</a></li>
+                    <li><a href="#">Deportes</a></li>
+                  </ul>
+                </div>
+                <div class="footer-section">
+                  <h2>Políticas</h2>
+                  <ul>
+                    <li><a href="./Políticas de privacidad/politicasprivacidad.html" target="_blank">Política de Privacidad</a></li>
+                    <li><a href="./Términos y condiciones/terminosycondiciones.html" target="_blank">Términos y Condiciones</a></li>
+                    <li><a href="./aviso-cookie/aviso-cookies.html" target="_blank">Política de Cookies</a></li>
+                    <li><a href="./Devoluciones/devoluciones.html" target="_blank">Política de Devoluciones</a></li>
+                  </ul>
+                </div>
+                <div class="footer-section">
+                  <h2>Métodos de Pago</h2>
+                  <div class="payment-methods">
+                        <a href="https://www.visa.es" target="_blank">
+                            <img src="./imagenes/metodosdepago/visa.png" alt="Visa" width="50" height="26">
+                        </a>
+                        <a href="https://www.mastercard.com" target="_blank">
+                            <img src="./imagenes/metodosdepago/mastercard.png" alt="MasterCard" width="32" height="25">
+                        </a>
+                        <a href="https://www.mastercard.com" target="_blank">
+                            <img src="./imagenes/metodosdepago/maestro.png" alt="MasterCard" width="33" height="26">
+                        </a>
+                        <a href="https://www.apple.com/es/apple-pay" target="_blank">    
+                            <img src="./imagenes/metodosdepago/applepay.png" alt="Apple Pay" width="47" height="25">
+                        <a href="https://www.paypal.com/" target="_blank">
+                            <img src="./imagenes/metodosdepago/paypal.png" alt="PayPal" width="74" height="20">
+                        </a>
+                        <a href="https://pay.google.com" target="_blank">
+                            <img src="./imagenes/metodosdepago/googlepay.png" alt="Google Pay" width="47" height="27">
+                        </a>
+                        <a href="https://www.discover.com" target="_blank">
+                            <img src="./imagenes/metodosdepago/discover.png" alt="Discover" width="78" height="13">
+                        </a>
+                  </div>
+                </div>
+                <div class="footer-section">
+                  <h2>Contáctenos</h2>
+                    <a href="./Atención al cliente/Servicio-al-cliene.html" data-menu="menu-882">Atención al cliente</a>
+                    <p>Correo: info@ultimategame.com</p>
+                    <p>Teléfono: +34 644 975 102</p>
+                </div>
+                <div class="footer-section">
+                    <h2>Síguenos</h2>
+                    <div class="footer-social">
+                        <tr>
+                            <td><a href="https://www.instagram.com/" target="_blank">
+                                <img style="width: 30px; height: 25px;" src="./imagenes/redessociales/Instagram.svg" alt="" <p>Instagram</p> 
+                                </a>
+                            </td>
+
+                            <td>
+                                <a href="https://www.facebook.com/" target="_blank">
+                                    <img style="width: 30px; height: 25px;" src="./imagenes/redessociales/Facebook.svg" alt="" <p>Facebook</p>
+                                </a>
+                            </td>
+
+                            <td>
+                                <a href="https://twitter.com/" target="_blank">
+                                    <img style="width: 30px; height: 25px;" src="./imagenes/redessociales/x.svg" alt= ""<p>Twitter</p>
+                                </a>
+                            </td>
+
+                            <td>
+                                <a href="https://discord.com/" target="_blank">
+                                    <img style="width: 30px; height: 25px;" src="./imagenes/redessociales/discord.svg" alt="" <p>Discord</p>
+                                </a>
+                            </td>
+                        </tr>
+                  </div>
+                </div>
+              </div>
+              <p>&copy; 2023 Ultimate Game Todos los derechos reservados.</p>
+              <p>Creado por Said Oudrhich</p>
+        </footer>
+        
+    </body>
+</html>

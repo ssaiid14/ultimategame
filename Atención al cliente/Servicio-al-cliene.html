@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        
+        <meta charset="UTF-8">
+        <title>Ultimate Game - Atención al Cliente</title>
+        <link rel="shortcut icon" href="../imagenes/logo.webp">
+        <link rel="stylesheet" href="style.css">
+
+    </head>
+
+    <body>
+
+        <header>
+            <a href="../INDEX/index.html">
+                <img id="logo" src="../imagenes/logo.webp" alt="logo">
+            </a>
+            <h1>Ultimate Game</h1>
+            <nav>
+                <ul>
+                    <li><button><a href="../INDEX/index.html">Inicio</a></button></li>
+                    <li><button><a href="../INDEX/index.html#section1">Juegos</a></button></li>
+                    <li><button><a href="../Noticias/noticias.html">Noticias</a></button></li>
+                </ul>
+            </nav>
+        </header>
+
+        <div class="container">
+            <main>
+                <section id="formulario">
+                    <h2 style="text-align: center;">Formulario de Atención al Cliente</h2>
+                    <form>
+                        <label for="nombre">Nombre:</label>
+                        <input type="text" id="nombre" name="nombre" required>
+
+                        <label for="correo">Correo Electrónico:</label>
+                        <input type="email" id="correo" name="correo" required>
+
+                        <div class="checkbox-group">
+                            <h3>Preferencias de Juegos:</h3>
+                            <div class="checkbox-item">
+                                <label for="accion">Acción
+                                <input type="checkbox" id="accion" value="accion"></label>
+                            </div>
+                            <div class="checkbox-item">
+                                <label for="aventura">Aventura
+                                <input type="checkbox" id="aventura" value="aventura"></label>
+                            </div>
+                            <div class="checkbox-item">
+                                <label for="estrategia">Estrategia
+                                <input type="checkbox" id="estrategia" value="estrategia"></label>
+                            </div>
+                        </div>
+
+                        <div class="radio-group">
+                            <h3>Género Favorito:</h3>
+                            <div class="radio-item">
+                                <label for="masculino">Masculino
+                                <input type="radio" id="masculino" name="genero" value="masculino"></label>
+                            </div>
+                            <div class="radio-item">
+                                <label for="femenino">Femenino
+                                <input type="radio" id="femenino" name="genero" value="femenino"></label>
+                            </div>
+                            <div class="radio-item">
+                                <label for="otro">Otro
+                                <input type="radio" id="otro" name="genero" value="otro"></label>
+                            </div>
+                        </div>
+
+                        <h3 for="plataforma">Plataforma Preferida:</h3>
+                        <select id="plataforma" name="plataforma">
+                            <option value="PC">PC</option>
+                            <option value="Consola">Consola</option>
+                            <option value="Otros">Otros</option>
+                        </select>
+
+                        <section id="caja-texto">
+                            <h3>Más información</h3>
+                            <textarea placeholder="En que podemos ayudarte..." style="width: 100%;"></textarea>
+                        </section>
+
+                        <div class="button-group">
+                            <button type="submit">Enviar</button>
+                            <button type="reset">Limpiar</button>
+                        </div>
+                        
+                        <input type="file" id="fileInput" style="display:none;"/>
+                        <button onclick="document.getElementById('fileInput').click()" class="cssbuttons-io-button">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"></path><path fill="currentColor" d="M11 11V5h2v6h6v2h-6v6h-2v-6H5v-2z"></path></svg>
+                            <span>Añadir</span>
+                        </button>
+                    </form>
+                </section>
+            </main>
+        </div>
+
+            <footer>
+                <p>&copy; 2023 Ultimate Game. Todos los derechos reservados.</p>
+            </footer>
+
+    </body>
+</html>
